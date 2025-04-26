@@ -30,7 +30,7 @@
         var product = document.getElementById('product').value;
 
         var message = `Hello, I am ${name}. I want to book the product: ${product}. You can contact me at ${phone}.`;
-        var phoneNumber = "212613673527"; // replace with your number
+        var phoneNumber = "+212613673527"; // replace with your number
         var url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
         window.open(url, '_blank');
