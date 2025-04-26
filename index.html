@@ -1,118 +1,41 @@
 <!DOCTYPE html>
-<html lang="en-US" dir="ltr">
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-  <!-- ===============================================-->
-  <!--    Document Title-->
-  <!-- ===============================================-->
-  <title>courier | Landing, Responsive &amp; Business Templatee</title>
-
-
-  <!-- ===============================================-->
-  <!--    Favicons-->
-  <!-- ===============================================-->
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
-  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
-  <link rel="manifest" href="assets/img/favicons/manifest.json">
-  <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
-  <meta name="theme-color" content="#ffffff">
-
-
-  <!-- ===============================================-->
-  <!--    Stylesheets-->
-  <!-- ===============================================-->
-  <link href="assets/css/theme.css" rel="stylesheet" />
-
+    <meta charset="UTF-8">
+    <title>Product Landing Page</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin: 20px; }
+        input, button { margin: 10px; padding: 10px; width: 80%; max-width: 400px; }
+    </style>
 </head>
-
-
 <body>
 
-  <!-- ===============================================-->
-  <!--    Main Content-->
-  <!-- ===============================================-->
-  <main class="main" id="top">
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block"
-      data-navbar-on-scroll="data-navbar-on-scroll">
-      <div class="container"><a class="navbar-brand" href="index.html"><img src="assets/img/gallery/logo.png"
-            height="45" alt="logo" /></a>
-      </div>
-    </nav>
-    <section class="py-xxl-10 pb-0" id="home">
-      <div class="bg-holder bg-size"
-        style="background-image:url(assets/img/gallery/hero-header-bg.png);background-position:top center;background-size:cover;">
-      </div>
-      <!--/.bg-holder-->
+    <h1>Welcome to Our Product!</h1>
 
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-5 col-xl-6 col-xxl-7 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100"
-              src="assets/img/illustrations/hero.png" alt="hero-header" /></div>
-          <div class="col-md-75 col-xl-6 col-xxl-5 text-md-start text-center py-8">
-            <h1 class="fw-normal fs-6 fs-xxl-7">A trusted provider of </h1>
-            <h1 class="fw-bolder fs-6 fs-xxl-7 mb-2">courier services.</h1>
-            <p class="fs-1 mb-5">We deliver your products safely to <br />your home in a reasonable time. </p><a
-              class="btn btn-primary me-2" href="#!" role="button">Get started<i
-                class="fas fa-arrow-right ms-2"></i></a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <img src="your-product-photo.jpg" alt="Product Photo" style="width:300px;">
 
-  
-    <!-- <section> close ============================-->
-    <!-- ============================================-->
+    <p>Discover the best product for your needs. Book now!</p>
 
-
-  </main>
-  <!-- ===============================================-->
-  <!--    End of Main Content-->
-  <!-- ===============================================-->
-
-  <section class="container py-5">
-    <h2 class="text-center mb-4">Book Your Product</h2>
-    <form id="booking-form" class="text-center">
-      <input type="text" id="name" placeholder="Your Name" required class="form-control mb-2">
-      <input type="text" id="phone" placeholder="Your Phone Number" required class="form-control mb-2">
-      <input type="text" id="product" placeholder="Product Name" required class="form-control mb-2">
-      <button type="submit" class="btn btn-success">Send on WhatsApp</button>
+    <form id="bookingForm">
+        <input type="text" id="name" placeholder="Your Name" required><br>
+        <input type="tel" id="phone" placeholder="Your Phone" required><br>
+        <input type="text" id="product" placeholder="Product Name" required><br>
+        <button type="button" onclick="sendWhatsApp()">Book Now on WhatsApp</button>
     </form>
-  </section>
-  
-  <script>
-    document.getElementById('booking-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var name = document.getElementById('name').value;
-      var phone = document.getElementById('phone').value;
-      var product = document.getElementById('product').value;
-      
-      var message = `Hello, I would like to book: ${product}\nName: ${name}\nPhone: ${phone}`;
-      var whatsappURL = `https://wa.me/YOUR_PHONE_NUMBER?text=${encodeURIComponent(message)}`;
-      window.open(whatsappURL, '_blank');
-    });
-  </script>
-  
 
+    <script>
+    function sendWhatsApp() {
+        var name = document.getElementById('name').value;
+        var phone = document.getElementById('phone').value;
+        var product = document.getElementById('product').value;
 
-  <!-- ===============================================-->
-  <!--    JavaScripts-->
-  <!-- ===============================================-->
-  <script src="vendors/@popperjs/popper.min.js"></script>
-  <script src="vendors/bootstrap/bootstrap.min.js"></script>
-  <script src="vendors/is/is.min.js"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-  <script src="vendors/fontawesome/all.min.js"></script>
-  <script src="assets/js/theme.js"></script>
+        var message = `Hello, I am ${name}. I want to book the product: ${product}. You can contact me at ${phone}.`;
+        var phoneNumber = "212613673527"; // replace with your number
+        var url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600;700;800&amp;display=swap"
-    rel="stylesheet">
+        window.open(url, '_blank');
+    }
+    </script>
+
 </body>
-
 </html>
